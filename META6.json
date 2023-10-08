@@ -1,0 +1,20 @@
+{
+  "name": "Getopt::Long::Grammar",
+  "description": "Parsing getopt and argparser parameter specs.",
+  "version": "0.0.1",
+  "perl": "6.d",
+  "authors": [
+    "Anton Antonov"
+  ],
+  "auth": "zef:antononcube",
+  "depends": [],
+  "build-depends": [],
+  "test-depends": [],
+  "provides": {
+    "Getopt::Long::Grammar": "lib/Getopt/Long/Grammar.rakumod",
+    "Getopt::Long::Grammar::Actions": "lib/Getopt/Long/Grammar/Actions.rakumod"
+  },
+  "resources": [],
+  "license": "Artistic-2.0",
+  "source-url": ""
+}
