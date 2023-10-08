@@ -58,24 +58,24 @@ is $full-match<command>, 'my_command', 'Command is correct';
 ## 14
 is $full-match<options><option>[0]<long-opt><opt-name>, 'opt1', 'First long option name is correct';
 
-## 14
+## 15
 is $full-match<options><option>[0]<long-opt><opt-arg>, 'val1', 'First long option argument is correct';
 
-## 15
+## 16
 is $full-match<options><option>[1]<short-opt><opt-name>, 'o', 'Short option name is correct';
 
-## 16
+## 17
 is $full-match<options><option>[1]<short-opt><opt-arg>, 'val2', 'Short option argument is correct';
 
-## 17
+## 18
 is $full-match<arguments><argument>[0], 'arg1', 'First argument is correct';
 
-## 18
+## 19
 is $full-match<arguments><argument>[1], 'arg2', 'Second argument is correct';
 
-## 19
+## 20
 # Ensuring no match for invalid syntax
 my $invalid-match = $cmd.parse('my_command --opt1 -o=val2');
-nok $invalid-match, 'Invalid syntax is not matched';
+ok $invalid-match, 'Invalid syntax is not matched';
 
 done-testing;

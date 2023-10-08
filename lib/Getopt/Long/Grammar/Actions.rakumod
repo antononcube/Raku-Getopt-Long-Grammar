@@ -12,7 +12,7 @@ class Getopt::Long::Grammar::Actions {
     }
 
     method options($/) {
-        make $<option>>>.made;
+        make $<option>>>.made.List;
     }
 
     method option($/) {
@@ -34,7 +34,7 @@ class Getopt::Long::Grammar::Actions {
     }
 
     method arguments($/) {
-        make $<argument>.map(*.made);
+        make $<argument>.map(*.made).List;
     }
 
     method opt-name($/) {

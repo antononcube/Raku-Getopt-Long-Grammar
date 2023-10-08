@@ -43,21 +43,12 @@ my $cmd = '%%chat_meta cw1 --api_key=cd77fdfw1 --prompt';
 
 getopt-parse($cmd);
 ```
-```
-# ｢%%chat_meta cw1 --api_key=cd77fdfw1 --prompt｣
-#  command => ｢%%chat_meta｣
-#  arguments => ｢cw1 --api_key=cd77fdfw1 --prompt｣
-#   argument => ｢cw1｣
-#   argument => ｢--api_key=cd77fdfw1｣
-#   argument => ｢--prompt｣
-```
 
 Interpret:
 
 ```perl6
 getopt-interpret($cmd);
 ```
-```
-# {arguments => (cw1 --api_key=cd77fdfw1 --prompt), command => %%chat_meta}
-```
+
+
 

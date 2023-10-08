@@ -9,14 +9,14 @@ use Test;
 # Define a few command-line examples to test
 my @tests = (
 {
-    str => 'command --option1 arg1 --option2 arg2 arg3 arg4',
+    str => '%%chat --option1 arg1 --option2 arg2 arg3 arg4',
     ast => {
-        command  => 'command',
-        options  => [
-            { long-opt => { opt-name => 'option1', opt-arg => 'arg1' }, short-opt => Nil },
-            { long-opt => { opt-name => 'option2', opt-arg => 'arg2' }, short-opt => Nil }
-        ],
-        arguments => ['arg3', 'arg4']
+        command  => '%%chat',
+        options  => (
+            { name => 'option1', value => 'arg1' },
+            { name => 'option2', value => 'arg2' }
+        ),
+        arguments => <arg3 arg4>
     }
 },
 # ... more test definitions ...
