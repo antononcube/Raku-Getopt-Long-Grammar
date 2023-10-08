@@ -5,11 +5,11 @@ Raku package for parsing Getopt specs and Python CLI specs.
 ### Motivation
 
 Given a 
-[Jupyter chatbook made with Python kernel](https://pypi.org/project/JupyterChatbook/) 
+[Jupyter chatbook made with the Python kernel](https://pypi.org/project/JupyterChatbook/) 
 I want to be able to switch to a 
 [Raku kernel](https://raku.land/zef:antononcube/Jupyter::Chatbook) 
 for that chatbook and use the chat cells as they are, without changing the "magic specs." 
-This means, being able to parse the magic argument specs the way Jupyter Python uses them.
+This means, being able to parse the magic argument specs in the way the Jupyter Python Kernel uses them.
 (See 
 ["IPython extensions"](https://ipython.readthedocs.io/en/stable/config/extensions/index.html) and
 ["argparse"](https://docs.python.org/3/library/argparse.html).) 
@@ -18,7 +18,7 @@ This means, being able to parse the magic argument specs the way Jupyter Python 
 
 ## Installation
 
-From [Zef ecosystem]():
+From [Zef ecosystem](https://raku.land):
 
 ```
 zef install Getopt::Long::Grammar
