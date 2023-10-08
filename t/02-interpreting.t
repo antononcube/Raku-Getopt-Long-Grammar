@@ -1,8 +1,7 @@
 
-use lib './lib';
+use lib 'lib';
 
 use Getopt::Long::Grammar;
-use Getopt::Long::Grammar::Actions;
 
 use Test;
 
@@ -10,6 +9,7 @@ use Test;
 my @tests = (
 {
     str => '%%chat --option1 arg1 --option2 arg2 arg3 arg4',
+    :!gather,
     ast => {
         command  => '%%chat',
         options  => (
@@ -19,8 +19,10 @@ my @tests = (
         arguments => <arg3 arg4>
     }
 },
+
 {
     str => '%%chat arg2 arg3 arg4 --option1 arg1 --option2',
+    :!gather,
     ast => {
         command  => '%%chat',
         options  => (
@@ -30,12 +32,22 @@ my @tests = (
         arguments => <arg2 arg3 arg4>
     }
 },
+
+{
+    str => '%%chat_meta cw1 --api_key=cd77fdfw1 --lr 1 --prompt --lr 2',
+    :gather,
+    ast => {
+        command  => '%%chat_meta',
+        options  => { api_key => 'cd77fdfw1', :prompt, lr => ("1", "2") },
+        arguments => ('cw1',)
+    }
+},
 );
 
 # Run the tests
 for @tests -> %test {
-    my $parsed = Getopt::Long::Grammar.parse(%test<str>, :actions(Getopt::Long::Grammar::Actions.new));
-    is-deeply $parsed.made, %test<ast>, "Testing: {%test<str>}";
+    my $parsed = getopt-interpret(%test<str>, gather => %test<gather>);
+    is-deeply $parsed, %test<ast>, "Testing: {%test<str>}";
 }
 
 # Finish the test run

@@ -46,17 +46,21 @@ getopt-parse($cmd);
 ```
 # ｢%%chat_meta cw1 --api_key=cd77fdfw1 --prompt｣
 #  command => ｢%%chat_meta｣
+#   gen-arg => ｢%%chat_meta｣
 #  arguments => ｢cw1｣
 #   argument => ｢cw1｣
+#    gen-arg => ｢cw1｣
 #  options => ｢--api_key=cd77fdfw1 --prompt｣
 #   option => ｢--api_key=cd77fdfw1｣
 #    long-opt => ｢api_key=cd77fdfw1｣
 #     opt-name => ｢api_key｣
+#      gen-arg => ｢api_key｣
 #     opt-arg => ｢cd77fdfw1｣
 #      gen-arg => ｢cd77fdfw1｣
 #   option => ｢--prompt｣
 #    long-opt => ｢prompt｣
 #     opt-name => ｢prompt｣
+#      gen-arg => ｢prompt｣
 ```
 
 Interpret:
@@ -65,7 +69,7 @@ Interpret:
 getopt-interpret($cmd);
 ```
 ```
-# {arguments => (cw1), command => %%chat_meta, options => ({name => api_key, value => cd77fdfw1} {name => prompt, value => True})}
+# {arguments => (cw1), command => %%chat_meta, options => {api_key => cd77fdfw1, prompt => True}}
 ```
 
 
