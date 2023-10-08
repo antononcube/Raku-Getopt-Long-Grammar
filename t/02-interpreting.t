@@ -19,13 +19,23 @@ my @tests = (
         arguments => <arg3 arg4>
     }
 },
-# ... more test definitions ...
+{
+    str => '%%chat arg2 arg3 arg4 --option1 arg1 --option2',
+    ast => {
+        command  => '%%chat',
+        options  => (
+        { name => 'option1', value => 'arg1' },
+        { name => 'option2', :value}
+        ),
+        arguments => <arg2 arg3 arg4>
+    }
+},
 );
 
 # Run the tests
 for @tests -> %test {
     my $parsed = Getopt::Long::Grammar.parse(%test<str>, :actions(Getopt::Long::Grammar::Actions.new));
-    is-deeply $parsed.ast, %test<ast>, "Testing: {%test<str>}";
+    is-deeply $parsed.made, %test<ast>, "Testing: {%test<str>}";
 }
 
 # Finish the test run
