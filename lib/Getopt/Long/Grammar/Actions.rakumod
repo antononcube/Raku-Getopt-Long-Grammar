@@ -2,13 +2,17 @@ class Getopt::Long::Grammar::Actions {
     method TOP($/) {
         my %res;
         if $<command> { %res<command> = $<command>.Str }
-        if $<option-list> { %res<options> = $<option-list>.made }
-        if $<argument-list> { %res<arguments> = $<argument-list>.made }
+        if $<getopt-args><option-list> { %res<options> = $<getopt-args><option-list>.made }
+        if $<getopt-args><argument-list> { %res<arguments> = $<getopt-args><argument-list>.made }
         make %res;
     }
 
     method command($/) {
         make $/.Str;
+    }
+
+    method getopt-args($/) {
+        make $/.values[0].made;
     }
 
     method option-list($/) {
@@ -19,17 +23,10 @@ class Getopt::Long::Grammar::Actions {
         make $/.values[0].made;
     }
 
-    method long-opt($/) {
+    method opt-spec($/) {
         make {
             name => $<opt-name>.made,
-            value => $<opt-arg>.made // True
-        }
-    }
-
-    method short-opt($/) {
-        make {
-            name => $<opt-name>.made,
-            value => $<opt-arg>.made // True,
+            value => $<opt-val>.made // True
         }
     }
 
@@ -41,7 +38,7 @@ class Getopt::Long::Grammar::Actions {
         make $/.Str;
     }
 
-    method opt-arg($/) {
+    method opt-val($/) {
         make $/.Str;
     }
 
