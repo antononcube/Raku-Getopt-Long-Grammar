@@ -46,7 +46,7 @@ getopt-parse($cmd);
 ```
 # ｢%%chat_meta cw1 --api_key=cd77fdfw1 --prompt｣
 #  getopt-command => ｢%%chat_meta｣
-#  getopt-args => ｢ cw1 --api_key=cd77fdfw1 --prompt｣
+#  getopt-args => ｢cw1 --api_key=cd77fdfw1 --prompt｣
 #   argument-list => ｢cw1｣
 #    argument => ｢cw1｣
 #   option-list => ｢--api_key=cd77fdfw1 --prompt｣
