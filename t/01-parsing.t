@@ -2,8 +2,11 @@
 use lib './lib';
 
 use Getopt::Long::Grammar;
+use Getopt::Long::Grammarish;
 
 use Test;
+
+plan *;
 
 my $cmd = Getopt::Long::Grammar.new;
 
@@ -74,8 +77,15 @@ is $full-match<argument-list><argument>[0], 'arg1', 'First argument is correct';
 is $full-match<argument-list><argument>[1], 'arg2', 'Second argument is correct';
 
 ## 20
-# Ensuring no match for invalid syntax
-my $invalid-match = $cmd.parse('my_command --opt1 -o=val2');
-ok $invalid-match, 'Invalid syntax is not matched';
+my $valid-match20 = $cmd.parse('my_command --opt1 -o=val2');
+ok $valid-match20, 'Valid syntax is matched';
+
+## 21
+my grammar GetoptComma does Getopt::Long::Grammarish {
+    token getopt-delim { \h* [',' \h*]? }
+}
+my $cmd2 = GetoptComma.new;
+my $valid-match21 = $cmd2.parse('my_command --opt1, -o=val2, -p 32');
+ok $valid-match21, 'Comma delimiter syntax is  matched';
 
 done-testing;
