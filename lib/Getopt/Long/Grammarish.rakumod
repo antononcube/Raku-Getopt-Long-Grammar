@@ -10,12 +10,12 @@ role Getopt::Long::Grammarish {
 
     token getopt-command { <.generic-arg> }
     token option-list { <option>+ % \h+ }
-    token option { [ '--' | '-'] <opt-spec-pair> }
-    token opt-spec-pair {
-        <opt-name> [['=' | \h+] <opt-value>]?
+    token option { [ '--' | '-'] <option-pair> }
+    token option-pair {
+        <option-name> [['=' | \h+] <option-value>]?
     }
-    token opt-name { <.generic-arg> }
-    token opt-value { <.generic-arg> }
+    token option-name { <.generic-arg> }
+    token option-value { <.generic-arg> }
     token argument-list { <argument>+ % \h+ }
     token argument { <.generic-arg> }
 

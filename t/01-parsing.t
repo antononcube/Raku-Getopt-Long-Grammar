@@ -24,20 +24,20 @@ my $long-opt-match = $cmd.parse('my_command --option=value');
 ok $long-opt-match, 'Long option is matched';
 
 ## 4
-is $long-opt-match<getopt-args><option-list><option>>><opt-spec-pair>>><opt-name>, 'option', 'Long option name is correct';
+is $long-opt-match<getopt-args><option-list><option>>><option-pair>>><option-name>, 'option', 'Long option name is correct';
 
 ## 5
-is $long-opt-match<getopt-args><option-list><option>>><opt-spec-pair>>><opt-value>, 'value', 'Long option argument is correct';
+is $long-opt-match<getopt-args><option-list><option>>><option-pair>>><option-value>, 'value', 'Long option argument is correct';
 
 ## 6
 my $short-opt-match = $cmd.parse('my_command -o value');
 ok $short-opt-match, 'Short option is matched';
 
 ## 7
-is $short-opt-match<getopt-args><option-list><option>>><opt-spec-pair>>><opt-name>, 'o', 'Short option name is correct';
+is $short-opt-match<getopt-args><option-list><option>>><option-pair>>><option-name>, 'o', 'Short option name is correct';
 
 ## 8
-is $short-opt-match<getopt-args><option-list><option>>><opt-spec-pair>>><opt-value>, 'value', 'Short option argument is correct';
+is $short-opt-match<getopt-args><option-list><option>>><option-pair>>><option-value>, 'value', 'Short option argument is correct';
 
 ## 9
 # Testing `arguments` parsing
@@ -59,16 +59,16 @@ ok $full-match, 'Full command line is matched';
 is $full-match<getopt-command>, 'my_command', 'Command is correct';
 
 ## 14
-is $full-match<getopt-args><option-list><option>[0]<opt-spec-pair><opt-name>, 'opt1', 'First long option name is correct';
+is $full-match<getopt-args><option-list><option>[0]<option-pair><option-name>, 'opt1', 'First long option name is correct';
 
 ## 15
-is $full-match<getopt-args><option-list><option>[0]<opt-spec-pair><opt-value>, 'val1', 'First long option argument is correct';
+is $full-match<getopt-args><option-list><option>[0]<option-pair><option-value>, 'val1', 'First long option argument is correct';
 
 ## 16
-is $full-match<getopt-args><option-list><option>[1]<opt-spec-pair><opt-name>, 'o', 'Short option name is correct';
+is $full-match<getopt-args><option-list><option>[1]<option-pair><option-name>, 'o', 'Short option name is correct';
 
 ## 17
-is $full-match<getopt-args><option-list><option>[1]<opt-spec-pair><opt-value>, 'val2', 'Short option argument is correct';
+is $full-match<getopt-args><option-list><option>[1]<option-pair><option-value>, 'val2', 'Short option argument is correct';
 
 ## 18
 is $full-match<getopt-args><argument-list><argument>[0], 'arg1', 'First argument is correct';
