@@ -23,10 +23,10 @@ class Getopt::Long::Grammar::Actions {
         make $/.values[0].made;
     }
 
-    method opt-spec($/) {
+    method opt-spec-pair($/) {
         make {
             name => $<opt-name>.made,
-            value => $<opt-val>.made // True
+            value => $<opt-value>.made // True
         }
     }
 
@@ -38,7 +38,7 @@ class Getopt::Long::Grammar::Actions {
         make $/.Str;
     }
 
-    method opt-val($/) {
+    method opt-value($/) {
         make $/.Str;
     }
 

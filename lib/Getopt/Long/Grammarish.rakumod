@@ -8,17 +8,19 @@ role Getopt::Long::Grammarish {
         | [<.getopt-delim> <option-list>]? [<.getopt-delim> <argument-list>]?
         | <.getopt-delim> <argument-list> [<.getopt-delim> <option-list>]? }
 
-    token getopt-command { <gen-arg> }
+    token getopt-command { <.generic-arg> }
     token option-list { <option>+ % \h+ }
-    token option { [ '--' | '-'] <opt-spec> }
-    token opt-spec {
-        <opt-name> [['=' | \h+] <opt-val>]?
+    token option { [ '--' | '-'] <opt-spec-pair> }
+    token opt-spec-pair {
+        <opt-name> [['=' | \h+] <opt-value>]?
     }
-    token opt-name { <gen-arg> }
-    token gen-arg { <-[-]> <-[=\s]>* || <getopt-quoted-string>  }
-    token opt-val { <gen-arg> }
+    token opt-name { <.generic-arg> }
+    token opt-value { <.generic-arg> }
     token argument-list { <argument>+ % \h+ }
-    token argument { <gen-arg> }
+    token argument { <.generic-arg> }
+
+    # Generic argument name or value
+    token generic-arg { <-[-]> <-[=\s]>* || <getopt-quoted-string>  }
 
     # Quoted string
     regex getopt-quoted-string {
