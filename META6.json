@@ -12,6 +12,7 @@
   "test-depends": [],
   "provides": {
     "Getopt::Long::Grammar": "lib/Getopt/Long/Grammar.rakumod",
+    "Getopt::Long::Grammarish": "lib/Getopt/Long/Grammarish.rakumod",
     "Getopt::Long::Grammar::Actions": "lib/Getopt/Long/Grammar/Actions.rakumod"
   },
   "resources": [],
