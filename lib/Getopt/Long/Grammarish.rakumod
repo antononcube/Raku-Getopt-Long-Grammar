@@ -1,12 +1,12 @@
 role Getopt::Long::Grammarish {
     regex TOP {
-        | <getopt-command> <getopt-args>?
+        | <getopt-command> [<.getopt-delim> <getopt-args>]?
         | <getopt-args>
     }
 
     regex getopt-args {
-        | [<.getopt-delim> <option-list>]? [<.getopt-delim> <argument-list>]?
-        | <.getopt-delim> <argument-list> [<.getopt-delim> <option-list>]? }
+        | <option-list>? [<.getopt-delim> <argument-list>]?
+        | <argument-list> [<.getopt-delim> <option-list>]? }
 
     token getopt-command { <.generic-arg> }
     token option-list { <option>+ % \h+ }
