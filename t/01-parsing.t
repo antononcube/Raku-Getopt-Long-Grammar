@@ -16,7 +16,7 @@ my $command-match = $cmd.parse('my_command');
 ok $command-match, 'Command is matched';
 
 ## 2
-is $command-match<command>, 'my_command', 'Command is correct';
+is $command-match<getopt-command>, 'my_command', 'Command is correct';
 
 ## 3
 # Testing `options` parsing
@@ -56,7 +56,7 @@ my $full-match = $cmd.parse('my_command --opt1=val1 -o val2 arg1 arg2');
 ok $full-match, 'Full command line is matched';
 
 ## 13
-is $full-match<command>, 'my_command', 'Command is correct';
+is $full-match<getopt-command>, 'my_command', 'Command is correct';
 
 ## 14
 is $full-match<getopt-args><option-list><option>[0]<opt-spec><opt-name>, 'opt1', 'First long option name is correct';

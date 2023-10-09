@@ -1,13 +1,13 @@
 class Getopt::Long::Grammar::Actions {
     method TOP($/) {
         my %res;
-        if $<command> { %res<command> = $<command>.Str }
+        if $<getopt-command> { %res<command> = $<getopt-command>.Str }
         if $<getopt-args><option-list> { %res<options> = $<getopt-args><option-list>.made }
         if $<getopt-args><argument-list> { %res<arguments> = $<getopt-args><argument-list>.made }
         make %res;
     }
 
-    method command($/) {
+    method getopt-command($/) {
         make $/.Str;
     }
 
