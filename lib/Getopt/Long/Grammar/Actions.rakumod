@@ -2,8 +2,8 @@ class Getopt::Long::Grammar::Actions {
     method TOP($/) {
         my %res;
         if $<command> { %res<command> = $<command>.Str }
-        if $<options> { %res<options> = $<options>.made }
-        if $<arguments> { %res<arguments> = $<arguments>.made }
+        if $<option-list> { %res<options> = $<option-list>.made }
+        if $<argument-list> { %res<arguments> = $<argument-list>.made }
         make %res;
     }
 
@@ -11,7 +11,7 @@ class Getopt::Long::Grammar::Actions {
         make $/.Str;
     }
 
-    method options($/) {
+    method option-list($/) {
         make $<option>>>.made.List;
     }
 
@@ -33,7 +33,7 @@ class Getopt::Long::Grammar::Actions {
         }
     }
 
-    method arguments($/) {
+    method argument-list($/) {
         make $<argument>.map(*.made).List;
     }
 
