@@ -17,5 +17,15 @@
   },
   "resources": [],
   "license": "Artistic-2.0",
+  "tags": [
+    "argparse",
+    "arguments",
+    "cli",
+    "cli arguments",
+    "getopt",
+    "grammar",
+    "parsing"
+  ],
+  "api": "0",
   "source-url": "https://github.com/antononcube/Raku-Getopt-Long-Grammar"
 }
